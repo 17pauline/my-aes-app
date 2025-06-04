@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AES BMP Encrypt/Decrypt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="container">
+        <h1>AES Image Encryption Tool</h1>
+        <form id="bmpForm" enctype="multipart/form-data">
+            <label>
+                Select BMP file:
+                <input type="file" name="file" accept=".bmp" required>
+            </label>
+
+            <label>
+                Action:
+                <select name="operation">
+                    <option value="encryption">Encrypt</option>
+                    <option value="decryption">Decrypt</option>
+                </select>
+            </label>
+
+            <label>
+                AES Key:
+                <input type="text" name="key" placeholder="Enter AES key..." required>
+            </label>
+
+            <label>
+                AES Mode:
+                <select name="mode">
+                    <option value="ECB">ECB</option>
+                    <option value="CBC">CBC</option>
+                </select>
+            </label>
+
+            <button type="submit">Go</button>
+        </form>
+        <div id="statusMsg" class="message-box"></div>
+    </main>
+
+    <script>
+        document.getElementById('bmpForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const msgBox = document.getElementById('statusMsg');
+
+            try {
+                const response = await fetch('http://localhost:8080/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (response.ok) {
+                    msgBox.textContent = 'Image uploaded and submitted successfully!';
+                } else {
+                    const errorText = await response.text();
+                    msgBox.textContent = 'Upload failed: ' + errorText;
+                }
+            } catch (err) {
+                msgBox.textContent = 'An error occurred: ' + err.message;
+            }
+        });
+    </script>
+</body>
+</html>

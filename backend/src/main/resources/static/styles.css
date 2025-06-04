@@ -1,0 +1,70 @@
+body {
+    font-family: Tahoma, sans-serif;
+    background: #000e69;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 500px;
+    margin: 60px auto;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #000000;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-weight: 600;
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+}
+
+input[type="text"],
+input[type="file"],
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+button {
+    padding: 12px;
+    background-color: #f2ff00;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    font-weight: bolder;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #d3df00;
+}
+
+.message-box {
+    margin-top: 20px;
+    padding: 12px;
+    background-color: #e0e0e0;
+    border-left: 4px solid #ff0000;
+    border-right: 4px solid #ff0404;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #000000;
+}

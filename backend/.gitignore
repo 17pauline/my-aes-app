@@ -1,0 +1,10 @@
+.gradle
+build/classes
+build/generated 
+build/resources
+build/tmp
+!gradle/wrapper/gradle-wrapper.jar
+
+
+### VS Code ###
+.vscode/

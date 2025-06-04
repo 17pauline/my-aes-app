@@ -1,0 +1,16 @@
+services:
+  nodejs-server:
+    build: ./nodejs
+    ports:
+      - "3000:3000"
+    networks:
+      - my-network
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: image_db
+
+networks:
+  my-network:
+    external: true
